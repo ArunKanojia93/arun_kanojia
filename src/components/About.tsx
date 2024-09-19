@@ -2,16 +2,15 @@
 
 import { Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import TypeWriter from "typewriter-effect";
-import HALO from "vanta/src/vanta.halo";
+import HALO, { HaloInstance } from "vanta/src/vanta.halo";
 import NET, { NetInstance } from "vanta/src/vanta.net";
 import Info from "./User";
 
 const About = () => {
   const [netEffect, setNetEffect] = useState<NetInstance | null>(null);
 
-  const [haloEffect, setHaloEffect] = useState<NetInstance | null>(null);
+  const [haloEffect, setHaloEffect] = useState<HaloInstance | null>(null);
 
   const containerRef = useRef(null);
   const photoContainerRef = useRef(null);
