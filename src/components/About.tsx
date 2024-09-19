@@ -54,7 +54,7 @@ const About = () => {
     };
   }, [netEffect, haloEffect, containerRef]);
   return (
-    <div className="flex py-10 pr-16 pl-32 h-[80vh] justify-around items-center" ref={containerRef}>
+    <div ref={containerRef} className="flex py-10 pr-16 pl-32 h-[80vh] justify-around items-center">
       <div className="flex flex-col w-3/5">
         <div className="text-4xl text-primary">Hi, I am</div>
         <div className="text-7xl font-black text-white leading-tight">{Info.name}</div>
@@ -79,7 +79,7 @@ const About = () => {
           Check Resume
         </Button>
       </div>
-      <div ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center rotate-180">
+      <div ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center rotate-180 shadow-[1px_1px_20px_2px] shadow-primary">
         <img src="/assets/dp.png" alt="profile" className="w-full rounded-full shadow-xl rotate-180" />
       </div>
     </div>

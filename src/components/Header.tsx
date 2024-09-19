@@ -2,30 +2,8 @@
 
 import { Burger, Drawer, FocusTrap } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconAddressBook, IconBrandGit, IconCode, IconHexagonLetterA, IconKeyboard, IconUserSearch } from "@tabler/icons-react";
-
-const links = [
-  {
-    name: "About",
-    icon: <IconUserSearch size={20} className="text-primary" />,
-  },
-  {
-    name: "Projects",
-    icon: <IconBrandGit size={20} className="text-primary" />,
-  },
-  {
-    name: "Skills",
-    icon: <IconKeyboard size={20} className="text-primary" />,
-  },
-  {
-    name: "Experience",
-    icon: <IconCode size={20} className="text-primary" />,
-  },
-  {
-    name: "Contact",
-    icon: <IconAddressBook size={20} className="text-primary" />,
-  },
-];
+import { IconHexagonLetterA } from "@tabler/icons-react";
+import { SiteLinks } from "./User";
 const Header = () => {
   const [opened, { toggle, close }] = useDisclosure(false);
   return (
@@ -36,7 +14,7 @@ const Header = () => {
         <Image className="absolute w-auto h-auto" src="/assets/logo.png" alt="logo" width={44} height={44} />
       </div> */}
       <div className="hidden md:flex gap-8">
-        {links.map(({ name, icon }) => (
+        {SiteLinks.map(({ name, icon }) => (
           <a className="hover:text-primary flex items-center gap-2 hover:translate-y-0.5" key={name} href={`#${name.toLowerCase()}`}>
             {icon}
             {name}
@@ -49,7 +27,7 @@ const Header = () => {
           <Drawer.Content className="z-[9]">
             <FocusTrap.InitialFocus />
             <Drawer.Body className="bg-background h-full pt-24 flex flex-col items-center">
-              {links.map(({ name, icon }) => (
+              {SiteLinks.map(({ name, icon }) => (
                 <a className="flex flex-col gap-2 p-4 active:translate-y-0.5 w-full items-center text-lg" key={name} href={`#${name.toLowerCase()}`}>
                   {icon}
                   {name}
