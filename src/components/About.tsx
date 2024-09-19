@@ -2,6 +2,7 @@
 
 import { Button } from "@mantine/core";
 import { useEffect, useRef, useState } from "react";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 import TypeWriter from "typewriter-effect";
 import HALO from "vanta/src/vanta.halo";
 import NET, { NetInstance } from "vanta/src/vanta.net";
