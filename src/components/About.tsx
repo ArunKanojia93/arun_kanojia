@@ -15,7 +15,7 @@ const About = () => {
   const containerRef = useRef(null);
   const photoContainerRef = useRef(null);
   useEffect(() => {
-    if (!containerRef.current || !photoContainerRef.current || !HALO || !NET) return;
+    if (!containerRef.current || !photoContainerRef.current) return;
     if (!netEffect) {
       setNetEffect(
         NET({
@@ -51,8 +51,9 @@ const About = () => {
     }
     return () => {
       if (netEffect) netEffect.destroy();
+      if (haloEffect) haloEffect.destroy();
     };
-  }, [netEffect, haloEffect, containerRef, photoContainerRef, HALO, NET]);
+  }, [netEffect, haloEffect, containerRef, photoContainerRef]);
   return (
     <div ref={containerRef} className="h-[80vh] w-full flex justify-center">
       <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 2xl:px-0 justify-around items-center">
