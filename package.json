@@ -14,8 +14,10 @@
     "@tabler/icons-react": "^3.17.0",
     "aos": "^3.0.0-beta.6",
     "next": "14.2.12",
+    "next-themes": "^0.3.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-icon-cloud": "^4.1.4",
     "typewriter-effect": "^2.21.0",
     "vanta": "^0.5.24"
   },

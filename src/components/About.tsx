@@ -56,7 +56,7 @@ const About = () => {
   return (
     <div ref={containerRef} className="h-[80vh] w-full flex justify-center">
       <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 3xl:px-0 justify-around items-center">
-        <div className="flex flex-col w-3/5">
+        <div data-aos="fade-right" className="flex flex-col w-3/5">
           <div className="text-4xl text-primary">Hi, I am</div>
           <div className="text-7xl font-black text-white leading-tight">{Info.name}</div>
           <div className="text-white text-4xl flex font-semibold">
@@ -80,8 +80,8 @@ const About = () => {
             Check Resume
           </Button>
         </div>
-        <div ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center rotate-180 shadow-[1px_1px_60px_2px] shadow-primary">
-          <img src="/assets/dp.png" alt="profile" className="w-full rounded-full shadow-xl rotate-180" />
+        <div data-aos="fade-left" data-aos-delay="100" ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center shadow-[1px_1px_60px_2px] shadow-primary">
+          <img src="/assets/dp.png" alt="profile" className="w-full rounded-full shadow-xl" />
         </div>
       </div>
     </div>
