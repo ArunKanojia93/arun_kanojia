@@ -20,7 +20,14 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
-      <Card onClick={open} shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 hover:shadow-[0px_0px_4px_1px] hover:shadow-primary cursor-pointer hover:scale-[1.01] transition-transform duration-300">
+      <Card
+        data-aos="fade-up"
+        data-aos-duration="500"
+        onClick={open}
+        shadow="sm"
+        radius="lg"
+        className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 hover:shadow-[0px_0px_4px_1px] hover:shadow-primary cursor-pointer hover:scale-[1.01] transition-transform duration-300"
+      >
         <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
           <Card.Section p="sm">
             <Image src={imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />

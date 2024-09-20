@@ -55,7 +55,7 @@ const About = () => {
     };
   }, [netEffect, haloEffect, containerRef, photoContainerRef]);
   return (
-    <div ref={containerRef} className="h-[80vh] w-full flex justify-center">
+    <div className="h-[80vh] w-full flex justify-center">
       <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 3xl:px-0 justify-around items-center">
         <div className="flex flex-col w-3/5">
           <div className="text-4xl text-primary">Hi, I am</div>
