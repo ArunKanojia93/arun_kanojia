@@ -120,7 +120,7 @@ const Info = {
     },
   ],
 
-  //"Git", "Github", "VSCode", "Figma", "Android Studio", "Xcode", "Postman"
+  // Next.js, Astro, React, React Query, Preact, Firebase, React Native, TailwindCSS, Nanostores, HTML5, CSS3, Bootstrap, jQuery, Express.js, Redux.js, Node.js, Javascript, Typescript, PWA, REST API
 
   skills: [
     {
@@ -238,6 +238,25 @@ const Info = {
           icon: <Image src="/assets/postman.png" alt="pwa" width={24} height={24} />,
         },
       ],
+    },
+  ],
+
+  experience: [
+    {
+      position: "Frontend Developer",
+      logo: <Image src="/assets/pyzalabs.svg" alt="logo" width={60} height={60} className="rounded-2xl bg-black" />,
+      company: "Pyza Labs",
+      period: "January 2019 - Present",
+      description:
+        "At Pyza Labs, I served as a Software Developer, contributing to multiple projects that showcased my versatility in modern web and mobile development. I leveraged a diverse tech stack including Next.js, React, Astro, and React Native to build responsive web applications and cross-platform mobile solutions. My role involved designing intuitive user interfaces with TailwindCSS and Bootstrap, implementing state management using React Query and Redux.js, and developing robust backend services with Node.js and Express.js. I integrated Firebase for real-time functionality and authentication, and utilized TypeScript to enhance code quality.",
+    },
+    {
+      position: "Frontend Developer",
+      logo: <Image src="/assets/speechify.webp" alt="logo" width={60} height={60} className="rounded-2xl" />,
+      company: "Speechify",
+      period: "January 2021 - September 2024",
+      description:
+        "At Speechify, I played a key role as a versatile developer, contributing to multiple projects that showcased the company's innovation in text-to-speech technology. Leveraging a diverse tech stack, I developed robust web applications using Node.js, Next.js, Svelte, and React.js, enhancing user experiences with responsive designs implemented through Tailwind CSS and HTML5. I utilized TypeScript to ensure code quality and maintainability across projects. My responsibilities included integrating Firebase and Cloud Firestore for real-time data management, implementing state management solutions with Redux.js, and creating dynamic content management systems using WordPress.",
     },
   ],
 };

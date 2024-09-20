@@ -22,6 +22,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
     <>
       <Card
         data-aos="fade-up"
+        data-aos-easing="ease-in-out"
         data-aos-duration="500"
         onClick={open}
         shadow="sm"

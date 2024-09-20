@@ -1,6 +1,7 @@
 "use client";
 
 import About from "@/components/About";
+import Experience from "@/components/Experience";
 import Header from "@/components/Header";
 import Mail from "@/components/Mail";
 import Projects from "@/components/Projects/Projects";
@@ -20,6 +21,7 @@ export default function Home() {
       <About />
       <Projects />
       <Skills />
+      <Experience />
       <Mail />
     </>
   );
