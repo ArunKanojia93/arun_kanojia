@@ -1,19 +1,22 @@
 "use client";
 
-import { Badge, Button, Card, Image, Modal, Pill, Stack } from "@mantine/core";
+import { Badge, Button, Card, Image, Modal, Pill, Stack, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconBrandChrome, IconBrandGithub, IconPointFilled, IconX } from "@tabler/icons-react";
+import { IconBrandAndroid, IconBrandApple, IconBrandChrome, IconBrandGithub, IconPointFilled, IconX } from "@tabler/icons-react";
 
 interface ProjectCardProps {
   name: string;
-  githubLink: string;
-  liveLink: string;
+  githubLink?: string;
+  liveLink?: string;
   description: React.ReactNode;
   stack: string[];
   imgSrc: string;
   tagLine: string;
+  fullImgSrc?: string;
+  iOS?: string;
+  android?: string;
 }
-export const ProjectCard = ({ name, githubLink, liveLink, description, stack, imgSrc, tagLine }: ProjectCardProps) => {
+export const ProjectCard = ({ name, githubLink, liveLink, description, stack, imgSrc, tagLine, fullImgSrc, iOS, android }: ProjectCardProps) => {
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
@@ -24,14 +27,14 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
           </Card.Section>
 
           <Stack justify="space-between" mt="md" mb="xs" className="relative gap-0">
-            <text className="text-2xl text-primary font-semibold">{name}</text>
+            <Text className="text-2xl text-primary font-semibold">{name}</Text>
             <div className="flex absolute right-0 top-0 items-center justify-center animate-pulse">
               <Badge variant="outline" color="red" className="pr-4 w-auto">
                 Live
               </Badge>
               <IconPointFilled size={15} color="red" className="-ml-[17px]" />
             </div>
-            <text className="pr-14 text-foreground">{tagLine}</text>
+            <Text className="text-foreground text-sm">{tagLine}</Text>
           </Stack>
 
           <div className="text-foreground text-sm leading-6 tracking-wide line-clamp-3 mb-7">{description}</div>
@@ -45,36 +48,68 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
           <IconX size={32} className="absolute right-4 top-4 cursor-pointer hover:text-primary text-foreground" onClick={close} />
           <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
             <Card.Section p="sm">
-              <Image src={imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />
+              <Image src={fullImgSrc ?? imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />
             </Card.Section>
 
             <Stack justify="space-between" mt="md" mb="xs" className="relative gap-0">
-              <text className="text-2xl text-primary font-semibold">{name}</text>
+              <Text className="text-2xl text-primary font-semibold">{name}</Text>
               <div className="flex absolute right-0 top-0 items-center justify-center animate-pulse">
                 <Badge variant="outline" color="red" className="pr-4 w-auto">
                   Live
                 </Badge>
                 <IconPointFilled size={15} color="red" className="-ml-[17px]" />
               </div>
-              <text className="pr-14 text-foreground">{tagLine}</text>
+              <Text className="pr-14 text-foreground">{tagLine}</Text>
             </Stack>
 
             <div className="text-foreground text-sm leading-6 tracking-wide">{description}</div>
 
-            <div className="flex gap-8 mt-auto">
-              <Button
-                component="a"
-                href={githubLink}
-                target="_blank"
-                fullWidth
-                mt="md"
-                radius="md"
-                variant="outline"
-                className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80"
-                rightSection={<IconBrandGithub size={18} className="text-primary" />}
-              >
-                View Code
-              </Button>
+            <div className="flex gap-x-8 mt-auto flex-wrap justify-between">
+              {githubLink && (
+                <Button
+                  component="a"
+                  href={githubLink}
+                  target="_blank"
+                  fullWidth
+                  mt="md"
+                  radius="md"
+                  variant="outline"
+                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80"
+                  rightSection={<IconBrandGithub size={18} className="text-primary" />}
+                >
+                  View Code
+                </Button>
+              )}
+              {iOS && (
+                <Button
+                  component="a"
+                  href={iOS}
+                  target="_blank"
+                  fullWidth
+                  mt="md"
+                  radius="md"
+                  variant="outline"
+                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-2/5"
+                  rightSection={<IconBrandApple size={18} className="text-primary" />}
+                >
+                  Download iOS
+                </Button>
+              )}
+              {android && (
+                <Button
+                  component="a"
+                  href={android}
+                  target="_blank"
+                  fullWidth
+                  mt="md"
+                  radius="md"
+                  variant="outline"
+                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-2/5"
+                  rightSection={<IconBrandAndroid size={18} className="text-primary" />}
+                >
+                  Download Android
+                </Button>
+              )}
               <Button
                 component="a"
                 href={liveLink}

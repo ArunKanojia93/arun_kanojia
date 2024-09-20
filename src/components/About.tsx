@@ -15,7 +15,7 @@ const About = () => {
   const containerRef = useRef(null);
   const photoContainerRef = useRef(null);
   useEffect(() => {
-    if (!containerRef.current || !photoContainerRef.current) return;
+    if (!containerRef.current || !photoContainerRef.current || !HALO || !NET) return;
     if (!netEffect) {
       setNetEffect(
         NET({
@@ -52,35 +52,37 @@ const About = () => {
     return () => {
       if (netEffect) netEffect.destroy();
     };
-  }, [netEffect, haloEffect, containerRef]);
+  }, [netEffect, haloEffect, containerRef, photoContainerRef, HALO, NET]);
   return (
-    <div ref={containerRef} className="flex py-10 pr-16 pl-32 h-[80vh] justify-around items-center">
-      <div className="flex flex-col w-3/5">
-        <div className="text-4xl text-primary">Hi, I am</div>
-        <div className="text-7xl font-black text-white leading-tight">{Info.name}</div>
-        <div className="text-white text-4xl flex font-semibold">
-          My Stack:{" "}
-          <span className="text-primary font-bold">
-            <TypeWriter
-              options={{
-                strings: Info.stack,
-                autoStart: true,
-                loop: true,
-                deleteSpeed: 20,
-                cursor: "_",
-                delay: 100,
-              }}
-            />
-          </span>
-        </div>
-        <div className="text-xl font-semibold text-justify my-10 w-11/12">{Info.bio}</div>
+    <div ref={containerRef} className="h-[80vh] w-full flex justify-center">
+      <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 2xl:px-0 justify-around items-center">
+        <div className="flex flex-col w-3/5">
+          <div className="text-4xl text-primary">Hi, I am</div>
+          <div className="text-7xl font-black text-white leading-tight">{Info.name}</div>
+          <div className="text-white text-4xl flex font-semibold">
+            My Stack:{" "}
+            <span className="text-primary font-bold">
+              <TypeWriter
+                options={{
+                  strings: Info.stack,
+                  autoStart: true,
+                  loop: true,
+                  deleteSpeed: 20,
+                  cursor: "_",
+                  delay: 100,
+                }}
+              />
+            </span>
+          </div>
+          <div className="text-xl font-semibold text-justify my-10 w-11/12">{Info.bio}</div>
 
-        <Button size="md" className="bg-foreground text-background w-fit">
-          Check Resume
-        </Button>
-      </div>
-      <div ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center rotate-180 shadow-[1px_1px_20px_2px] shadow-primary">
-        <img src="/assets/dp.png" alt="profile" className="w-full rounded-full shadow-xl rotate-180" />
+          <Button size="md" className="bg-foreground text-background w-fit">
+            Check Resume
+          </Button>
+        </div>
+        <div ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center rotate-180 shadow-[1px_1px_20px_2px] shadow-primary">
+          <img src="/assets/dp.png" alt="profile" className="w-full rounded-full shadow-xl rotate-180" />
+        </div>
       </div>
     </div>
   );

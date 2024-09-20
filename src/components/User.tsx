@@ -31,13 +31,38 @@ const Info = {
 
   projects: [
     {
+      name: "Happy Inbox",
+      tagLine: "Delete Emails In Just Minutes",
+      liveLink: "https://app.happy-inbox.com",
+      description: (
+        <>
+          <p>
+            Welcome to Happy Inbox, a cutting-edge email management solution built with a robust, performance-focused tech stack. Our platform leverages the power of modern web technologies to provide Gmail users with an efficient, secure, and user-friendly email organization
+            experience.
+          </p>
+          <br />
+          <p className="font-semibold text-primary text-xl">Key Features: </p>
+          <li>Bulk Email Operations: Implemented efficient algorithms for processing large volumes of emails simultaneously.</li>
+          <li>Intelligent Sorting: Utilizes machine learning models to categorize and prioritize emails automatically.</li>
+          <li>Inbox Zero Automation: Designed workflows to achieve a clean inbox in under 15 minutes through smart filtering and action suggestions.</li>
+          <li>Security-First Architecture: Integrated robust security measures, audited and verified by Google and PWC, ensuring data protection at every level.</li>
+        </>
+      ),
+      stack: ["Astro", "Typescript", "TailwindCSS", "Nanostores", "React Query", "Preact", "Firebase", "React Native"],
+      iOS: "https://apps.apple.com/in/app/happy-inbox-gmail-cleaner/id6477334113",
+      android: "https://play.google.com/store/apps/details?id=com.happy_inbox.android",
+      imgSrc: "/assets/happy_inbox.png",
+      fullImgSrc: "/assets/happy_inbox_full.png",
+    },
+    {
       name: "Groq AI Chat:",
       tagLine: "Intelligent Conversations Powered by Groq.",
       githubLink: "https://github.com/ArunKanojia93/askgroq",
       liveLink: "https://askgroq.vercel.app",
       description: (
         <>
-          <p>Experience seamless AI interactions with our cutting-edge web application built on Next.js and TypeScript. Leveraging the Groq AI API, this platform offers dynamic, real-time conversations with a sophisticated AI model.</p> <br />{" "}
+          <p>Experience seamless AI interactions with our cutting-edge web application built on Next.js and TypeScript. Leveraging the Groq AI API, this platform offers dynamic, real-time conversations with a sophisticated AI model.</p>
+          <br />
           <p className="font-semibold text-primary text-xl">Key Features: </p>
           <li>Responsive UI crafted with Tailwind CSS</li>
           <li>Real-time AI interactions using the Groq SDK</li>
