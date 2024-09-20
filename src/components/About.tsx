@@ -15,11 +15,10 @@ const About = () => {
   const containerRef = useRef(null);
   const photoContainerRef = useRef(null);
   useEffect(() => {
-    if (!containerRef.current || !photoContainerRef.current) return;
     if (!netEffect) {
       setNetEffect(
         NET({
-          el: containerRef.current,
+          el: containerRef.current!,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
@@ -36,7 +35,7 @@ const About = () => {
     if (!haloEffect) {
       setHaloEffect(
         HALO({
-          el: photoContainerRef.current,
+          el: photoContainerRef.current!,
           mouseControls: true,
           touchControls: true,
           gyroControls: false,
@@ -53,9 +52,9 @@ const About = () => {
       if (netEffect) netEffect.destroy();
       if (haloEffect) haloEffect.destroy();
     };
-  }, [netEffect, haloEffect, containerRef, photoContainerRef]);
+  }, [haloEffect, netEffect]);
   return (
-    <div className="h-[80vh] w-full flex justify-center">
+    <div ref={containerRef} className="h-[80vh] w-full flex justify-center">
       <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 3xl:px-0 justify-around items-center">
         <div className="flex flex-col w-3/5">
           <div className="text-4xl text-primary">Hi, I am</div>
@@ -81,7 +80,7 @@ const About = () => {
             Check Resume
           </Button>
         </div>
-        <div ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center rotate-180 shadow-[1px_1px_20px_2px] shadow-primary">
+        <div ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center rotate-180 shadow-[1px_1px_60px_2px] shadow-primary">
           <img src="/assets/dp.png" alt="profile" className="w-full rounded-full shadow-xl rotate-180" />
         </div>
       </div>

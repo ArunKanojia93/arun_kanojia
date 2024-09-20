@@ -30,10 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <ColorSchemeScript />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js" defer></script>
+        <ColorSchemeScript />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-mono`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-mono pb-20`}>
         <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
