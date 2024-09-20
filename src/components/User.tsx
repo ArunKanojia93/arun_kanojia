@@ -1,4 +1,31 @@
-import { IconAddressBook, IconBrandGit, IconBrandGithub, IconBrandLinkedin, IconBrandWhatsapp, IconCode, IconKeyboard, IconMail, IconUserSearch } from "@tabler/icons-react";
+import {
+  IconAddressBook,
+  IconApi,
+  IconBrandAndroid,
+  IconBrandAstro,
+  IconBrandBootstrap,
+  IconBrandCss3,
+  IconBrandFigma,
+  IconBrandGit,
+  IconBrandGithub,
+  IconBrandHtml5,
+  IconBrandJavascript,
+  IconBrandLinkedin,
+  IconBrandNextjs,
+  IconBrandNodejs,
+  IconBrandReact,
+  IconBrandReactNative,
+  IconBrandRedux,
+  IconBrandTailwind,
+  IconBrandTypescript,
+  IconBrandVscode,
+  IconBrandWhatsapp,
+  IconCode,
+  IconKeyboard,
+  IconMail,
+  IconUserSearch,
+} from "@tabler/icons-react";
+import Image from "next/image";
 
 const Info = {
   name: "Arun Kanojia",
@@ -92,6 +119,127 @@ const Info = {
       imgSrc: "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png",
     },
   ],
+
+  //"Git", "Github", "VSCode", "Figma", "Android Studio", "Xcode", "Postman"
+
+  skills: [
+    {
+      name: "Frontend",
+      skills: [
+        {
+          name: "Next.js",
+          icon: <IconBrandNextjs size={24} className="text-primary" />,
+        },
+        {
+          name: "Astro",
+          icon: <IconBrandAstro size={24} className="text-primary" />,
+        },
+        {
+          name: "TailwindCSS",
+          icon: <IconBrandTailwind size={24} className="text-primary" />,
+        },
+        {
+          name: "React",
+          icon: <IconBrandReact size={24} className="text-primary" />,
+        },
+        {
+          name: "React Query",
+          icon: <Image src="/assets/query.png" alt="query" width={24} height={24} />,
+        },
+        {
+          name: "Nanostores",
+          icon: <Image src="/assets/nano.svg" alt="nano" width={24} height={24} />,
+        },
+        {
+          name: "React Native",
+          icon: <IconBrandReactNative size={24} className="text-primary" />,
+        },
+        {
+          name: "PWA",
+          icon: <Image src="/assets/pwa.png" alt="pwa" width={24} height={24} />,
+        },
+        {
+          name: "HTML",
+          icon: <IconBrandHtml5 size={24} className="text-primary" />,
+        },
+        {
+          name: "CSS",
+          icon: <IconBrandCss3 size={24} className="text-primary" />,
+        },
+        {
+          name: "Bootstrap",
+          icon: <IconBrandBootstrap size={24} className="text-primary" />,
+        },
+        {
+          name: "Redux",
+          icon: <IconBrandRedux size={24} className="text-primary" />,
+        },
+      ],
+    },
+    {
+      name: "Backend",
+      skills: [
+        {
+          name: "Node.js",
+          icon: <IconBrandNodejs size={24} className="text-primary" />,
+        },
+        {
+          name: "Express",
+          icon: <Image src="/assets/express.png" alt="pwa" width={24} height={24} />,
+        },
+        {
+          name: "REST API",
+          icon: <IconApi size={24} className="text-primary" />,
+        },
+      ],
+    },
+    {
+      name: "Languages",
+      skills: [
+        {
+          name: "Javascript",
+          icon: <IconBrandJavascript size={24} className="text-primary" />,
+        },
+        {
+          name: "Typescript",
+          icon: <IconBrandTypescript size={24} className="text-primary" />,
+        },
+      ],
+    },
+    {
+      name: "Tools",
+      skills: [
+        {
+          name: "Git",
+          icon: <IconBrandGit size={24} className="text-primary" />,
+        },
+        {
+          name: "Github",
+          icon: <IconBrandGithub size={24} className="text-primary" />,
+        },
+        {
+          name: "VSCode",
+          icon: <IconBrandVscode size={24} className="text-primary" />,
+        },
+        {
+          name: "Figma",
+          icon: <IconBrandFigma size={24} className="text-primary" />,
+        },
+        {
+          name: "Android Studio",
+          icon: <IconBrandAndroid size={24} className="text-primary" />,
+        },
+        {
+          name: "Xcode",
+          icon: <Image src="/assets/xcode.png" alt="pwa" width={24} height={24} />,
+        },
+        {
+          name: "Postman",
+          icon: <Image src="/assets/postman.png" alt="pwa" width={24} height={24} />,
+        },
+      ],
+    },
+  ],
 };
 
 export const SiteLinks = [
@@ -101,7 +249,7 @@ export const SiteLinks = [
   },
   {
     name: "Projects",
-    icon: <IconBrandGit size={20} className="text-primary" />,
+    icon: <IconBrandGithub size={20} className="text-primary" />,
   },
   {
     name: "Skills",

@@ -28,7 +28,7 @@ const About = () => {
           scale: 1.0,
           scaleMobile: 1.0,
           points: 20.0,
-          backgroundColor: 0x2e073f,
+          backgroundColor: 0x450151,
           maxDistance: 15.0,
         })
       );
@@ -44,7 +44,7 @@ const About = () => {
           minWidth: 200.0,
           scale: 1.0,
           scaleMobile: 1.0,
-          backgroundColor: 0x2e073f,
+          backgroundColor: 0x450151,
           size: 3.0,
         })
       );
@@ -56,7 +56,7 @@ const About = () => {
   }, [netEffect, haloEffect, containerRef, photoContainerRef]);
   return (
     <div ref={containerRef} className="h-[80vh] w-full flex justify-center">
-      <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 2xl:px-0 justify-around items-center">
+      <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 3xl:px-0 justify-around items-center">
         <div className="flex flex-col w-3/5">
           <div className="text-4xl text-primary">Hi, I am</div>
           <div className="text-7xl font-black text-white leading-tight">{Info.name}</div>

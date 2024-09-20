@@ -20,7 +20,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
   const [opened, { open, close }] = useDisclosure(false);
   return (
     <>
-      <Card shadow="sm" radius="lg" className="font-sans bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 p-0.5">
+      <Card onClick={open} shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 hover:shadow-[0px_0px_4px_1px] hover:shadow-primary cursor-pointer hover:scale-[1.01] transition-transform duration-300">
         <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
           <Card.Section p="sm">
             <Image src={imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />
@@ -44,7 +44,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
         </div>
       </Card>
       <Modal opened={opened} onClose={close} padding={0} radius="lg" withCloseButton={false} size="lg" centered>
-        <Card shadow="sm" radius="lg" className="font-sans bg-gradient-to-r from-purple-500 via-pink-500 to-indigo-500 p-0.5 relative">
+        <Card shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 relative">
           <IconX size={32} className="absolute right-4 top-4 cursor-pointer hover:text-primary text-foreground" onClick={close} />
           <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
             <Card.Section p="sm">
@@ -89,7 +89,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
                   mt="md"
                   radius="md"
                   variant="outline"
-                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-2/5"
+                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-[46%]"
                   rightSection={<IconBrandApple size={18} className="text-primary" />}
                 >
                   Download iOS
@@ -104,7 +104,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
                   mt="md"
                   radius="md"
                   variant="outline"
-                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-2/5"
+                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-[46%]"
                   rightSection={<IconBrandAndroid size={18} className="text-primary" />}
                 >
                   Download Android

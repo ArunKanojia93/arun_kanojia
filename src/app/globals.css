@@ -4,12 +4,12 @@
 
 /* :root {
   --background: #ebd3f8;
-  --foreground: #2e073f;
+  --foreground: #450151;
 } */
 
 /* @media (prefers-color-scheme: dark) { */
 :root {
-  --background: #2e073f;
+  --background: #450151;
   --foreground: #ebd3f8;
 }
 /* } */
