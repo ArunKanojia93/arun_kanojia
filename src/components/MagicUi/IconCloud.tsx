@@ -75,7 +75,7 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   return (
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    <Cloud {...cloudProps}>
+    <Cloud id={"icon-cloud"} {...cloudProps}>
       <>{renderedIcons}</>
     </Cloud>
   );
