@@ -297,23 +297,23 @@ export const slugs = [
 export const SiteLinks = [
   {
     name: "About",
-    icon: <IconUserSearch size={20} className="text-primary" />,
+    icon: <IconUserSearch size={24} className="text-primary" />,
   },
   {
     name: "Projects",
-    icon: <IconBrandGithub size={20} className="text-primary" />,
+    icon: <IconBrandGithub size={24} className="text-primary" />,
   },
   {
     name: "Skills",
-    icon: <IconKeyboard size={20} className="text-primary" />,
+    icon: <IconKeyboard size={24} className="text-primary" />,
   },
   {
     name: "Experience",
-    icon: <IconCode size={20} className="text-primary" />,
+    icon: <IconCode size={24} className="text-primary" />,
   },
   {
     name: "Contact",
-    icon: <IconAddressBook size={20} className="text-primary" />,
+    icon: <IconAddressBook size={24} className="text-primary" />,
   },
 ];
 

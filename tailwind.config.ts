@@ -16,6 +16,15 @@ const config: Config = {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
       },
+      animation: {
+        backgroundPositionSpin: "background-position-spin 3000ms infinite alternate",
+      },
+      keyframes: {
+        "background-position-spin": {
+          "0%": { backgroundPosition: "top center" },
+          "100%": { backgroundPosition: "bottom center" },
+        },
+      },
     },
   },
   plugins: [],

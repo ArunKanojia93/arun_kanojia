@@ -22,24 +22,26 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="flex flex-col pt-28 px-8 md:px-32 3xl:px-0 items-center w-full max-w-screen-2xl">
-      <div className="text-5xl font-bold text-primary pb-20">Contact</div>
+    <div id="contact" className="flex justify-center pt-28 px-8 md:px-32 3xl:px-0 items-center w-full">
+      <div className="flex flex-col items-center w-full max-w-screen-2xl">
+        <div className="text-5xl font-bold text-primary pb-20">Contact</div>
 
-      <div data-aos="flip-right" data-aos-easing="ease-in-out" data-aos-duration="500" className="rounded-2xl w-full max-w-2xl bg-gradient-to-r from-purple-500 to-pink-500 p-0.5 shadow-[0_0_4px_0] shadow-primary">
-        <div className="bg-background rounded-2xl px-6 py-4">
-          <div className="text-foreground text-3xl font-black mb-6 flex gap-2 items-center">
-            Let&apos;s Connect <IconCodeDots stroke={2.5} size={32} className="text-primary" />
+        <div data-aos="flip-right" data-aos-easing="ease-in-out" data-aos-duration="500" className="rounded-2xl w-full max-w-5xl bg-gradient-to-r from-purple-500 to-pink-500 p-0.5 shadow-[0_0_4px_0] shadow-primary">
+          <div className="bg-background rounded-2xl px-6 py-4">
+            <div className="text-foreground text-3xl font-black mb-6 flex gap-2 items-center">
+              Let&apos;s Connect <IconCodeDots stroke={2.5} size={32} className="text-primary" />
+            </div>
+            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-8">
+              <FloatingInput handleChange={handleChange} value={form.name} label="Name" />
+              <FloatingInput handleChange={handleChange} value={form.email} label="Email" />
+              <FloatingInput handleChange={handleChange} value={form.phone!} label="Phone Number" />
+              <FloatingInput handleChange={handleChange} value={form.message} label="Message" />
+
+              <button type="submit" className="bg-foreground text-background rounded-lg px-4 py-2 shadow-[0_0_4px_0] shadow-primary font-bold hover:shadow-[0_0_6px_2px] hover:shadow-primary transition-all duration-300 active:bg-primary">
+                Submit
+              </button>
+            </form>
           </div>
-          <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-8">
-            <FloatingInput handleChange={handleChange} value={form.name} label="Name" />
-            <FloatingInput handleChange={handleChange} value={form.email} label="Email" />
-            <FloatingInput handleChange={handleChange} value={form.phone!} label="Phone Number" />
-            <FloatingInput handleChange={handleChange} value={form.message} label="Message" />
-
-            <button type="submit" className="bg-foreground text-background rounded-lg px-4 py-2 shadow-[0_0_4px_0] shadow-primary font-bold hover:shadow-[0_0_6px_2px] hover:shadow-primary transition-all duration-300 active:bg-primary">
-              Submit
-            </button>
-          </form>
         </div>
       </div>
     </div>
