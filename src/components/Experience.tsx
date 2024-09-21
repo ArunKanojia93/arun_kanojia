@@ -8,7 +8,7 @@ const Experience = () => {
       <div className="text-5xl font-bold text-primary pb-20">Experience</div>
       <Timeline active={2} color="#DF73FF" className="w-full max-w-screen-2xl" bulletSize={32}>
         {Info.experience.map(({ position, period, description, logo, company }) => (
-          <Timeline.Item data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="500" key={company} bullet={<IconBriefcaseFilled size={32} className="text-background" />} className="text-primary text-2xl md:text-4xl font-semibold pt-12">
+          <Timeline.Item data-aos="fade-up" key={company} bullet={<IconBriefcaseFilled size={32} className="text-background" />} className="text-primary text-2xl md:text-4xl font-semibold pt-12">
             <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-0.5 rounded-2xl shadow-[0px_0px_4px_1px] shadow-primary">
               <div className="bg-background p-4 rounded-2xl">
                 <div className="flex flex-col sm:flex-row items-center gap-4 pt-4">

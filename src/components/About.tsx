@@ -37,7 +37,7 @@ const About = () => {
                 />
               </span>
             </div>
-            <div className="md:text-lg xl:text-xl font-semibold text-justify my-10 w-full md:w-11/12">{Info.bio}</div>
+            <div className="md:text-lg 2xl:text-xl font-semibold text-justify my-10 w-full md:w-11/12">{Info.bio}</div>
 
             <div className="flex gap-4">
               <Button onClick={open} size="md" radius="md" className="bg-foreground text-background w-fit hover:bg-foreground hover:text-background hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300">
