@@ -32,7 +32,7 @@ const Header = () => {
     return () => {
       window.removeEventListener("scroll", controlNavbar);
     };
-  }, [lastScrollY]);
+  });
 
   return (
     <nav className={`flex bg-none py-8 px-10 h-28 justify-center sticky top-0 ${show ? "translate-y-0" : "-translate-y-32"} transition-transform duration-500 ease-in-out w-full z-30 ${showShadow && !opened ? "shadow-[0_10px_30px_-10px_#7F1395] bg-background" : ""}`}>
@@ -60,34 +60,32 @@ const Header = () => {
             </a>
           ))}
         </div>
-        <>
-          <Drawer.Root size={"100%"} opened={opened} onClose={close} position="right">
-            <Drawer.Overlay opacity={0.5} blur={30} className="z-10" />
-            <Drawer.Content className="z-20">
-              <FocusTrap.InitialFocus />
-              <Drawer.Body className="bg-background h-full pt-28 flex flex-col items-center justify-between">
-                <div>
-                  {SiteLinks.map(({ name, icon }) => (
-                    <a onClick={toggle} className="flex flex-col gap-2 p-4 active:translate-y-0.5 w-full items-center text-lg" key={name} href={`#${name.toLowerCase()}`}>
-                      {icon}
-                      {name}
-                    </a>
-                  ))}
-                </div>
+        <Drawer.Root size={"100%"} opened={opened} onClose={close} position="right">
+          <Drawer.Overlay opacity={0.5} blur={30} className="z-10" />
+          <Drawer.Content className="z-20">
+            <FocusTrap.InitialFocus />
+            <Drawer.Body className="bg-background h-full pt-28 flex flex-col items-center justify-between">
+              <div>
+                {SiteLinks.map(({ name, icon }) => (
+                  <a onClick={toggle} className="flex flex-col gap-2 p-4 active:translate-y-0.5 w-full items-center text-lg" key={name} href={`#${name.toLowerCase()}`}>
+                    {icon}
+                    {name}
+                  </a>
+                ))}
+              </div>
 
-                <div className="flex items-center justify-center gap-10 pt-6">
-                  {Info.socials.map(({ name, icon, link }) => (
-                    <a href={link} className="transform active:scale-125 duration-300 ease-in-out" key={name}>
-                      {icon}
-                    </a>
-                  ))}
-                </div>
-              </Drawer.Body>
-            </Drawer.Content>
-          </Drawer.Root>
+              <div className="flex items-center justify-center gap-10 pt-6">
+                {Info.socials.map(({ name, icon, link }) => (
+                  <a href={link} className="transform active:scale-125 duration-300 ease-in-out" key={name}>
+                    {icon}
+                  </a>
+                ))}
+              </div>
+            </Drawer.Body>
+          </Drawer.Content>
+        </Drawer.Root>
 
-          <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" color="#DF73FF" className="md:hidden" transitionDuration={200} />
-        </>
+        <Burger opened={opened} onClick={toggle} aria-label="Toggle navigation" color="#DF73FF" className="md:hidden" transitionDuration={200} />
       </div>
     </nav>
   );

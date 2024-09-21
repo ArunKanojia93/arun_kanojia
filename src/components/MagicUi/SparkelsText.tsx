@@ -95,6 +95,7 @@ const SparklesText: React.FC<SparklesTextProps> = ({ text, colors = { first: "#9
     const interval = setInterval(updateStars, 100);
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [colors.first, colors.second]);
 
   return (
