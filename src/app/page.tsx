@@ -10,15 +10,12 @@ import Mail from "@/components/Mail";
 import Projects from "@/components/Projects/Projects";
 import Skills from "@/components/Skills/Skills";
 import Social from "@/components/Social";
-import Aos from "aos";
-import "aos/dist/aos.css";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    Aos.init();
     setTimeout(() => {
       setIsLoading(false);
     }, 5000);

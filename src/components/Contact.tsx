@@ -26,7 +26,7 @@ const Contact = () => {
       <div className="flex flex-col items-center w-full max-w-screen-2xl">
         <div className="text-5xl font-bold text-primary pb-20">Contact</div>
 
-        <div data-aos="flip-right" className="rounded-2xl w-full max-w-5xl bg-gradient-to-r from-purple-500 to-pink-500 p-0.5 shadow-[0_0_4px_0] shadow-primary">
+        <div data-aos="flip-right" className="rounded-2xl w-full max-w-2xl bg-gradient-to-r from-purple-500 to-pink-500 p-0.5 shadow-[0_0_4px_0] shadow-primary">
           <div className="bg-background rounded-2xl px-6 py-4">
             <div className="text-foreground text-3xl font-black mb-6 flex gap-2 items-center">
               Let&apos;s Connect <IconCodeDots stroke={2.5} size={32} className="text-primary" />
@@ -62,7 +62,7 @@ const FloatingInput = ({ label, value, handleChange }: { label: string; value: s
           onChange={(e) => handleChange(label.toLocaleLowerCase(), e.target.value)}
           value={value}
           type="text"
-          id={label}
+          id={label.toLocaleLowerCase()}
           className="block px-2.5 pb-2.5 pt-4 w-full shadow-[0_0_4px_0] shadow-primary text-lg text-foreground bg-background rounded-lg appearance-none focus:outline-none focus:ring-0 focus:shadow-[0_0_4px_2px] focus:shadow-primary peer"
           placeholder=""
         />

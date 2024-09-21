@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { AOSInit } from "@/components/Aos";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 
 const geistSans = localFont({
@@ -31,6 +32,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         <ColorSchemeScript />
+        <AOSInit />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-mono`}>
         <MantineProvider>{children}</MantineProvider>
