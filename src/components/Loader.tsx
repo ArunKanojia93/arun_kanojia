@@ -3,7 +3,7 @@ import { slugs } from "./User";
 
 export function CloudLoader() {
   return (
-    <div className="relative flex min-h-dvh w-full items-center justify-center animate-[ping_2s_ease-in-out_infinite_4.7s] rounded-lg bg-background">
+    <div className="relative flex min-h-dvh w-full items-center justify-center animate-[ping_3s_ease-in-out_infinite_4.8s] rounded-lg bg-background">
       <IconCloud iconSlugs={slugs} />
     </div>
   );

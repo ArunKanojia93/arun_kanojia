@@ -22,7 +22,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="flex flex-col pt-28 px-32 3xl:px-0 items-center w-full max-w-screen-2xl">
+    <div id="contact" className="flex flex-col pt-28 px-8 md:px-32 3xl:px-0 items-center w-full max-w-screen-2xl">
       <div className="text-5xl font-bold text-primary pb-20">Contact</div>
 
       <div data-aos="flip-right" data-aos-easing="ease-in-out" data-aos-duration="500" className="rounded-2xl w-full max-w-2xl bg-gradient-to-r from-purple-500 to-pink-500 p-0.5 shadow-[0_0_4px_0] shadow-primary">

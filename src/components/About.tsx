@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@mantine/core";
+import { IconDownload } from "@tabler/icons-react";
 import { useEffect, useRef, useState } from "react";
 import TypeWriter from "typewriter-effect";
 import HALO, { HaloInstance } from "vanta/src/vanta.halo";
@@ -15,13 +16,14 @@ const About = () => {
   const containerRef = useRef(null);
   const photoContainerRef = useRef(null);
   useEffect(() => {
+    if (!containerRef.current || !photoContainerRef.current) return;
     if (!netEffect) {
       setNetEffect(
         NET({
           el: containerRef.current!,
           mouseControls: true,
           touchControls: true,
-          gyroControls: false,
+          gyroControls: true,
           minHeight: 200.0,
           minWidth: 200.0,
           scale: 1.0,
@@ -38,7 +40,7 @@ const About = () => {
           el: photoContainerRef.current!,
           mouseControls: true,
           touchControls: true,
-          gyroControls: false,
+          gyroControls: true,
           minHeight: 200.0,
           minWidth: 200.0,
           scale: 1.0,
@@ -54,12 +56,12 @@ const About = () => {
     };
   }, [haloEffect, netEffect]);
   return (
-    <div ref={containerRef} className="h-[80vh] w-full flex justify-center">
-      <div className="max-w-screen-2xl w-full h-full flex py-10 px-16 3xl:px-0 justify-around items-center">
-        <div data-aos="fade-right" className="flex flex-col w-3/5">
-          <div className="text-4xl text-primary">Hi, I am</div>
-          <div className="text-7xl font-black text-white leading-tight">{Info.name}</div>
-          <div className="text-white text-4xl flex font-semibold">
+    <div ref={containerRef} className="lg:h-[80vh] w-full flex justify-center">
+      <div className="max-w-screen-2xl w-full h-full flex flex-col-reverse lg:flex-row py-10 px-8 md:px-16 3xl:px-0 justify-around items-center gap-y-16">
+        <div data-aos="fade-right" className="flex flex-col w-full lg:w-3/5 items-center lg:items-start">
+          <div className="text-3xl md:text-4xl text-primary">Hi, I am</div>
+          <div className="text-4xl md:text-7xl font-black text-white leading-tight">{Info.name}</div>
+          <div className="text-white text-3xl md:text-4xl flex font-semibold">
             My Stack:{" "}
             <span className="text-primary font-bold">
               <TypeWriter
@@ -74,13 +76,18 @@ const About = () => {
               />
             </span>
           </div>
-          <div className="text-xl font-semibold text-justify my-10 w-11/12">{Info.bio}</div>
+          <div className="text-lg lg:text-xl font-semibold text-justify my-10 w-full md:w-11/12">{Info.bio}</div>
 
-          <Button size="md" className="bg-foreground text-background w-fit">
-            Check Resume
-          </Button>
+          <div className="flex gap-4">
+            <Button size="md" className="bg-foreground text-background w-fit hover:bg-foreground hover:text-background hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300">
+              Check Resume
+            </Button>
+            <Button size="md" className="bg-background text-foreground w-fit border-2 border-primary hover:bg-background hover:text-foreground hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300">
+              Download <IconDownload size={20} className="ml-2 text-primary" />
+            </Button>
+          </div>
         </div>
-        <div data-aos="fade-left" data-aos-delay="100" ref={photoContainerRef} className="w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center shadow-[1px_1px_60px_2px] shadow-primary">
+        <div data-aos="fade-left" data-aos-delay="100" ref={photoContainerRef} className="w-1/2 lg:w-1/4 p-3 rounded-full overflow-hidden h-auto flex justify-center items-center shadow-[1px_1px_60px_2px] shadow-primary">
           <img src="/assets/dp.png" alt="profile" className="w-full rounded-full shadow-xl" />
         </div>
       </div>

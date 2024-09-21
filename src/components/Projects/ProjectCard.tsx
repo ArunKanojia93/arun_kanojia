@@ -53,7 +53,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
       </Card>
       <Modal opened={opened} onClose={close} padding={0} radius="lg" withCloseButton={false} size="lg" centered>
         <Card shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 relative">
-          <IconX size={32} className="absolute right-4 top-4 cursor-pointer hover:text-primary text-foreground" onClick={close} />
+          <IconX size={32} className="absolute right-4 top-4 cursor-pointer hover:text-primary text-foreground bg-background rounded-full p-1" onClick={close} />
           <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
             <Card.Section p="sm">
               <Image src={fullImgSrc ?? imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />
