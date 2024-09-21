@@ -19,11 +19,8 @@ export default function Home() {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
+      Aos.init();
     }, 5000);
-  }, []);
-
-  useEffect(() => {
-    Aos.init();
   }, []);
   return !isLoading ? (
     <>

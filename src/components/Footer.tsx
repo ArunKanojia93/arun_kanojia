@@ -4,7 +4,7 @@ import Info from "./User";
 
 const Footer = () => {
   return (
-    <div id="footer" className="flex flex-col pt-10 px-8 md:px-16 lg:px-32 3xl:px-0 items-center w-full">
+    <div id="footer" className="flex flex-col py-10 px-8 md:px-16 lg:px-32 3xl:px-0 items-center w-full">
       {/* <div className="text-5xl font-black text-black dark:text-white">Arun Kanojia</div> */}
       <SparklesText className="text-4xl md:text-6xl" text={Info.name} />
       <div className="flex gap-2 mt-4 text-lg text-primary justify-center flex-wrap">

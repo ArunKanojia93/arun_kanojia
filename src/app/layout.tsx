@@ -32,7 +32,7 @@ export default function RootLayout({
       <head>
         <ColorSchemeScript />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-mono pb-10`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased font-mono`}>
         <MantineProvider>{children}</MantineProvider>
       </body>
     </html>
