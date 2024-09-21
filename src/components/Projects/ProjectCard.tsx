@@ -43,6 +43,13 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
               <IconPointFilled size={15} color="red" className="-ml-[17px]" />
             </div>
             <Text className="text-foreground text-sm">{tagLine}</Text>
+            <Pill.Group className="mt-4">
+              {stack.map((item) => (
+                <Pill key={item} radius={6} className="shadow-[0px_0px_2px_1px] shadow-primary bg-foreground text-background font-semibold">
+                  {item}
+                </Pill>
+              ))}
+            </Pill.Group>
           </Stack>
 
           <div className="text-foreground text-sm leading-6 tracking-wide line-clamp-3 mb-7">{description}</div>

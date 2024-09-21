@@ -4,7 +4,7 @@ import Info from "./User";
 
 const Experience = () => {
   return (
-    <div id="experience" className="flex flex-col pt-20 px-8 md:px-32 3xl:px-0 items-center">
+    <div id="experience" className="flex flex-col pt-20 px-8 md:px-16 xl:px-32 3xl:px-0 items-center">
       <div className="text-5xl font-bold text-primary pb-20">Experience</div>
       <Timeline active={2} color="#DF73FF" className="w-full max-w-screen-2xl" bulletSize={32}>
         {Info.experience.map(({ position, period, description, logo, company }, i) => (

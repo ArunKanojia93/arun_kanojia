@@ -4,7 +4,7 @@ import { SkillCard } from "./SkillCard";
 
 const Skills = () => {
   return (
-    <div id="skills" className="flex flex-col pt-20 px-8 md:px-32 3xl:px-0 items-center">
+    <div id="skills" className="flex flex-col pt-20 px-8 md:px-16 xl:px-32 3xl:px-0 items-center">
       <div className="text-5xl font-bold text-primary pb-20">Skills</div>
       <div className="grid grid-cols-1 xl:grid-cols-[repeat(2,_minmax(500px,_1fr))] gap-8 w-full max-w-screen-2xl">
         {Info.skills.map(({ name, skills }) => (

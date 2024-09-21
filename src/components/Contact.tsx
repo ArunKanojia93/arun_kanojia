@@ -22,7 +22,7 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="flex justify-center pt-28 px-8 md:px-32 3xl:px-0 items-center w-full">
+    <div id="contact" className="flex justify-center pt-28 px-8 md:px-16 xl:px-32 3xl:px-0 items-center w-full">
       <div className="flex flex-col items-center w-full max-w-screen-2xl">
         <div className="text-5xl font-bold text-primary pb-20">Contact</div>
 
