@@ -99,6 +99,10 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
 
   useEffect(() => {
     if (containerRef.current) {
+      const styleElem = document.head.appendChild(document.createElement("style"));
+      styleElem.innerHTML = `#neon-gradient-card:before {
+        transform: translateZ(0);
+      }`;
       const { offsetWidth, offsetHeight } = containerRef.current;
       setDimensions({ width: offsetWidth, height: offsetHeight });
     }
@@ -126,6 +130,7 @@ const NeonGradientCard: React.FC<NeonGradientCardProps> = ({
       {...props}
     >
       <div
+        id="neon-gradient-card"
         className={cn(
           "relative min-h-[inherit] w-full h-full max-h-96 rounded-[var(--card-content-radius)] bg-transparent",
           "before:absolute before:-left-[var(--border-size)] before:-top-[var(--border-size)] before:-z-10 before:block",

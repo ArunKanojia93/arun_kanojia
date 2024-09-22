@@ -22,7 +22,7 @@ const About = () => {
           <div className="flex flex-col w-full lg:w-3/5 items-center lg:items-start">
             <div className="text-3xl xl:text-4xl text-primary">Hi, I am</div>
             <SparklesText text={Info.name} className="text-4xl xl:text-7xl font-black text-white !leading-normal" />
-            <div className="text-white text-3xl xl:text-4xl flex">
+            <div className="text-white text-2xl sm:text-3xl xl:text-4xl flex">
               My Stack:{" "}
               <span className="text-primary font-semibold">
                 <TypeWriter
