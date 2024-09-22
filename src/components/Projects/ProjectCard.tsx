@@ -1,8 +1,8 @@
 "use client";
 
-import { Badge, Button, Card, Image, Modal, Pill, Stack, Text } from "@mantine/core";
+import { Badge, Button, Card, FocusTrap, Image, Modal, Pill, Stack, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import { IconBrandAndroid, IconBrandApple, IconBrandChrome, IconBrandGithub, IconPointFilled, IconX } from "@tabler/icons-react";
+import { IconBrandAndroid, IconBrandAppleFilled, IconBrandChrome, IconBrandGithub, IconPointFilled, IconX } from "@tabler/icons-react";
 
 interface ProjectCardProps {
   name: string;
@@ -23,7 +23,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
       <Card data-aos="fade-up" onClick={open} shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 hover:shadow-[0px_0px_4px_1px] hover:shadow-primary cursor-pointer hover:scale-[1.01] transition-transform duration-300">
         <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
           <Card.Section p="sm">
-            <Image src={imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />
+            <Image src={imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary min-h-44" />
           </Card.Section>
 
           <Stack justify="space-between" mt="md" mb="xs" className="relative gap-0">
@@ -51,6 +51,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
         </div>
       </Card>
       <Modal opened={opened} onClose={close} padding={0} radius="lg" withCloseButton={false} size="lg" centered>
+        <FocusTrap.InitialFocus />
         <Card shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 relative">
           <IconX size={32} className="absolute right-4 top-4 cursor-pointer hover:text-primary text-foreground bg-background rounded-full p-1" onClick={close} />
           <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
@@ -71,7 +72,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
 
             <div className="text-foreground text-sm leading-6 tracking-wide">{description}</div>
 
-            <div className="flex gap-x-8 mt-auto flex-wrap justify-between">
+            <div className="flex sm:gap-x-8 mt-auto flex-wrap justify-between">
               {githubLink && (
                 <Button
                   component="a"
@@ -92,14 +93,13 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
                   component="a"
                   href={iOS}
                   target="_blank"
-                  fullWidth
                   mt="md"
                   radius="md"
                   variant="outline"
-                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-[46%]"
-                  rightSection={<IconBrandApple size={18} className="text-primary" />}
+                  className="border-gray-600 hover:text-white bg-black text-white xs:w-[46%] hover:shadow-[0_0_4px_0] hover:shadow-foreground hover:bg-black min-w-fit transition-shadow duration-200 ease-in-out"
+                  rightSection={<IconBrandAppleFilled size={18} className="text-white" />}
                 >
-                  Download iOS
+                  iOS App
                 </Button>
               )}
               {android && (
@@ -107,14 +107,13 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
                   component="a"
                   href={android}
                   target="_blank"
-                  fullWidth
                   mt="md"
                   radius="md"
                   variant="outline"
-                  className="text-primary border-primary shadow-sm shadow-primary hover:text-primary hover:opacity-80 w-[46%]"
-                  rightSection={<IconBrandAndroid size={18} className="text-primary" />}
+                  className="border-gray-600 hover:text-white bg-black text-white xs:w-[46%] hover:shadow-[0_0_4px_0] hover:shadow-foreground hover:bg-black min-w-fit transition-shadow duration-200 ease-in-out"
+                  rightSection={<IconBrandAndroid size={18} className="text-white" />}
                 >
-                  Download Android
+                  Android App
                 </Button>
               )}
               <Button

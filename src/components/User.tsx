@@ -82,6 +82,25 @@ const Info = {
       fullImgSrc: "/assets/happy_inbox_full.png",
     },
     {
+      name: "Speechify",
+      tagLine: "Text to Speech Reader and AI Voice Generater",
+      liveLink: "https://speechify.com",
+      description: (
+        <>
+          <p>Speechify is a text-to-speech app that reads text aloud using a computer-generated voice. It&#39;s available on Chrome, iOS, Android, Mac, and Edge.</p>
+          <br />
+          <p className="font-semibold text-primary text-xl">Key Features: </p>
+          <li>Natural-sounding voices: Speechify offers a variety of high-quality premium voices to choose from.</li>
+          <li> Optical character recognition: Speechify can turn physical books or printed text into audio by using optical character recognition technology.</li>
+          <li> Take photos of text: Speechify lets users take photos of text and then listen to it read out loud.</li>
+          <li> AI voice over: Speechify&#39;s AI voices can read up to 9x faster than the average reading speed.</li>
+        </>
+      ),
+      stack: ["Next.js", "Typescript", "TailwindCSS", "Zustand", "React", "Svelte", "Firebase", "WordPress", "jQuery", "Redux", "Node.js", "Elementor", "Cloud Firestore"],
+      imgSrc: "/assets/speechify_website.png",
+      fullImgSrc: "/assets/speechify_full.png",
+    },
+    {
       name: "Groq AI Chat:",
       tagLine: "Intelligent Conversations Powered by Groq.",
       githubLink: "https://github.com/ArunKanojia93/askgroq",
