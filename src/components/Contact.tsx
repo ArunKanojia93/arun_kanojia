@@ -1,14 +1,19 @@
-import { IconCodeDots } from "@tabler/icons-react";
+import { IconArrowRight, IconCodeDots } from "@tabler/icons-react";
+import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
+import toast, { ToastPosition } from "react-hot-toast";
+import { db } from "./InitializeFIrebase";
 
 interface FormData {
+  id: string;
   name: string;
   email: string;
-  phone: string | null;
+  phone: string | undefined;
   message: string;
 }
 const Contact = () => {
   const formData: FormData = {
+    id: "",
     name: "",
     email: "",
     phone: "",
@@ -16,9 +21,61 @@ const Contact = () => {
   };
 
   const [form, setForm] = useState<FormData>(formData);
+  const [formError, setFormError] = useState<FormData>(formData);
+  const [loading, setLoading] = useState<boolean>(false);
 
-  const handleChange = (name: string, value: string) => {
-    setForm({ ...form, [name]: value });
+  const validateForm = (id: string, value: string) => {
+    switch (id) {
+      case "name":
+        return value.length === 0 || value.length < 3 ? "Name must be at least 3 characters long" : "";
+      case "email":
+        return !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? "Invalid email address" : "";
+      case "phone":
+        return value.length > 0 && !/^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/i.test(value) ? "Invalid phone number" : "";
+      case "message":
+        return value.length < 10 ? "Message must be at least 10 characters long" : "";
+      default:
+        return "";
+    }
+  };
+
+  const handleChange = (id: string, value: string) => {
+    setForm({ ...form, [id]: value });
+    setFormError({ ...formError, [id]: validateForm(id, value) });
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    const toastOptions = {
+      position: "bottom-right" as ToastPosition,
+      duration: 4000,
+    };
+    setLoading(true);
+    e.preventDefault();
+    if (
+      Object.values(formError).some((value) => value !== "") ||
+      Object.keys(form)
+        .filter((key) => key === "message")
+        .some((key) => form[key] === "")
+    ) {
+      toast.error("Please fill in all the required fields", toastOptions);
+      setLoading(false);
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "contact"), { ...form, id: new Date().toLocaleString() });
+
+      setFormError(formData);
+      setForm(formData);
+
+      setLoading(false);
+
+      toast.success("Message sent successfully", toastOptions);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+      setLoading(false);
+      toast.error("Error sending message", toastOptions);
+    }
   };
 
   return (
@@ -31,14 +88,22 @@ const Contact = () => {
             <div className="text-foreground text-3xl font-black mb-6 flex gap-2 items-center">
               Let&apos;s Connect <IconCodeDots stroke={2.5} size={32} className="text-primary" />
             </div>
-            <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-8">
-              <FloatingInput handleChange={handleChange} value={form.name} label="Name" />
-              <FloatingInput handleChange={handleChange} value={form.email} label="Email" />
-              <FloatingInput handleChange={handleChange} value={form.phone!} label="Phone Number" />
-              <FloatingInput handleChange={handleChange} value={form.message} label="Message" />
 
-              <button type="submit" className="bg-foreground text-background rounded-lg px-4 py-2 shadow-[0_0_4px_0] shadow-primary font-bold hover:shadow-[0_0_6px_2px] hover:shadow-primary transition-all duration-300 active:bg-primary">
-                Submit
+            <form onSubmit={handleSubmit} className="flex flex-col gap-8">
+              {Object.keys(form).map((key) => key !== "id" && <FloatingInput key={key} id={key} name={key} value={form[key as keyof FormData]} handleChange={(id, value) => handleChange(id, value)} error={formError[key as keyof FormData]} />)}
+
+              <button
+                disabled={
+                  loading ||
+                  Object.values(formError).some((value) => value !== "") ||
+                  Object.keys(form)
+                    .filter((key) => key === "message")
+                    .some((key) => form[key] === "")
+                }
+                type="submit"
+                className="flex items-center gap-2 justify-center bg-foreground text-background rounded-lg px-4 py-2 shadow-[0_0_4px_0] shadow-primary font-bold hover:shadow-[0_0_6px_2px] hover:shadow-primary transition-all duration-300 active:bg-primary disabled:cursor-not-allowed disabled:shadow-none disabled:opacity-50"
+              >
+                {loading ? "Sending..." : "Send"} <IconArrowRight stroke={2.5} size={24} className={`text-background ${loading ? "animate-pulse" : ""}`} />
               </button>
             </form>
           </div>
@@ -48,33 +113,40 @@ const Contact = () => {
   );
 };
 
-const FloatingInput = ({ label, value, handleChange }: { label: string; value: string; handleChange: (name: string, value: string) => void }) => {
+const FloatingInput = ({ id, name, value, handleChange, error }: { id: string; name: string; value?: string; handleChange: (id: string, value: string) => void; error?: string }) => {
   return (
-    <div className="relative">
-      {label === "Message" ? (
-        <textarea
-          rows={4}
-          className="block px-2.5 pb-2.5 pt-4 w-full shadow-[0_0_4px_0] shadow-primary text-lg text-foreground bg-background rounded-lg appearance-none focus:bg-background focus:outline-none focus:ring-0 focus:shadow-[0_0_4px_2px] focus:shadow-primary peer"
-          placeholder=""
-        />
-      ) : (
-        <input
-          onChange={(e) => handleChange(label.toLocaleLowerCase(), e.target.value)}
-          value={value}
-          type="text"
-          id={label.toLocaleLowerCase()}
-          className="block px-2.5 pb-2.5 pt-4 w-full shadow-[0_0_4px_0] shadow-primary text-lg text-foreground bg-background rounded-lg appearance-none focus:outline-none focus:ring-0 focus:shadow-[0_0_4px_2px] focus:shadow-primary peer"
-          placeholder=""
-        />
-      )}
-      <label
-        htmlFor={label}
-        className={`absolute text-lg text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-background px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 ${
-          label === "Message" ? "peer-placeholder-shown:top-5" : "peer-placeholder-shown:top-1/2"
-        } peer-focus:top-1 peer-focus:scale-75 rounded-md peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1`}
-      >
-        {label}
-      </label>
+    <div>
+      <div className="relative">
+        {id === "message" ? (
+          <textarea
+            id={id}
+            value={value}
+            onChange={(e) => handleChange(id, e.target.value)}
+            rows={4}
+            className="block px-2.5 pb-2.5 pt-4 w-full shadow-[0_0_4px_0] shadow-primary text-lg text-foreground bg-background rounded-lg appearance-none focus:bg-background focus:outline-none focus:ring-0 focus:shadow-[0_0_4px_2px] focus:shadow-primary peer"
+            placeholder=""
+          />
+        ) : (
+          <input
+            onChange={(e) => handleChange(id, e.target.value)}
+            value={value}
+            type="text"
+            id={id}
+            className="block px-2.5 pb-2.5 pt-4 w-full shadow-[0_0_4px_0] shadow-primary text-lg text-foreground bg-background rounded-lg appearance-none focus:outline-none focus:ring-0 focus:shadow-[0_0_4px_2px] focus:shadow-primary peer"
+            placeholder=""
+          />
+        )}
+        <label
+          htmlFor={name}
+          className={`absolute text-lg text-gray-400 duration-300 transform -translate-y-4 scale-75 top-2 z-10 origin-[0] bg-background px-2 peer-focus:px-2 peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 ${
+            id === "message" ? "peer-placeholder-shown:top-5" : "peer-placeholder-shown:top-1/2"
+          } peer-focus:top-1 peer-focus:scale-75 rounded-md peer-focus:-translate-y-4 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto start-1 capitalize`}
+        >
+          {name}
+          {id === "phone" ? "" : "*"}
+        </label>
+      </div>
+      {error && <div className="text-red-500 text-sm mt-2">{error}</div>}
     </div>
   );
 };

@@ -10,6 +10,12 @@ export const AOSInit = () => {
       easing: "ease-out-quad",
       duration: 1000,
     });
+
+    AOS.refresh();
+
+    return () => {
+      AOS.refreshHard();
+    };
   }, []);
 
   return null;

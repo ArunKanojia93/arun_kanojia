@@ -11,6 +11,7 @@ import Projects from "@/components/Projects/Projects";
 import Skills from "@/components/Skills/Skills";
 import Social from "@/components/Social";
 import { useEffect, useState } from "react";
+import { Toaster } from "react-hot-toast";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,6 +23,7 @@ export default function Home() {
   }, []);
   return !isLoading ? (
     <>
+      <Toaster />
       <Social />
       <Header />
       <About />
