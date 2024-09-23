@@ -37,7 +37,7 @@ const Header = () => {
   return (
     <nav className={`flex bg-none py-8 px-10 h-28 justify-center sticky top-0 ${show ? "translate-y-0" : "-translate-y-32"} transition-transform duration-500 ease-in-out w-full z-30 ${showShadow && !opened ? "shadow-[0_10px_30px_-10px_#7F1395] bg-background" : ""}`}>
       <div className="flex w-full max-w-screen-2xl justify-between items-center relative">
-        <a href="#about" rel="noopener noreferrer" className="relative flex items-center justify-center">
+        <a href="#" rel="noopener noreferrer" className="relative flex items-center justify-center">
           <IconHexagonLetterA
             style={{
               clipPath: "polygon(52% 2px, 91% 27%, 91% 71%, 50% 97%, 10% 70%, 11% 25%)",
