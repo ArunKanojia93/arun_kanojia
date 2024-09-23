@@ -63,14 +63,14 @@ const About = () => {
       <Modal.Root scrollAreaComponent={ScrollArea.Autosize} opened={opened} onClose={close} size="auto" centered>
         <Modal.Overlay />
         <Modal.Content className="rounded-2xl border border-primary shadow-[0px_0px_4px_1px] shadow-primary">
-          <Modal.Header className="bg-background">
+          <Modal.Header className="bg-background relative justify-normal">
             <Modal.Title className="text-3xl font-bold">Resume</Modal.Title>
             <Tooltip label="Download" position="right" offset={10} className="bg-foreground text-background">
               <ActionIcon component="a" href="/assets/arun@pyzalabs.com.pdf" download={Info.email} variant="outline" aria-label="Settings" className="ml-4 border-foreground">
                 <IconArrowBigDownLinesFilled stroke={1.5} className="text-foreground animate-bounce" />
               </ActionIcon>
             </Tooltip>
-            <Modal.CloseButton size={32} className="text-foreground hover:bg-background hover:text-primary" />
+            <Modal.CloseButton size={32} className="text-foreground hover:bg-background hover:text-primary fixed right-4 top-4 bg-background rounded-full" />
           </Modal.Header>
           <Modal.Body>
             <PdfViewer />
