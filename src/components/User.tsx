@@ -101,6 +101,31 @@ const Info = {
       fullImgSrc: "/assets/speechify_full.png",
     },
     {
+      name: "Groq Recipe AI",
+      tagLine: "AI-Powered Recipe Generator",
+      githubLink: "https://github.com/ArunKanojia93/groq-recipe-ai",
+      liveLink: "https://groq-recipe-ai.vercel.app/",
+      description: (
+        <>
+          <p>Developed an innovative web application that leverages artificial intelligence to generate detailed cooking instructions from recipe names. This project showcases my ability to integrate cutting-edge AI technology with modern web development practices.</p>
+          <br />
+          <p className="font-semibold text-primary text-xl">Key Features: </p>
+          <li>AI-powered recipe instruction generation</li>
+          <li>User-friendly interface for inputting recipe names</li>
+          <li>Detailed, step-by-step cooking instructions output</li>
+          <br />
+          <p className="font-semibold text-primary text-xl">Implementation Highlights: </p>
+          <li>Utilized Next.js and TypeScript for a robust, type-safe frontend</li>
+          <li>Integrated Groq&#39;s AI capabilities for natural language processing and recipe generation</li>
+          <li>Implemented responsive design with TailwindCSS for optimal user experience across devices</li>
+          <li>Leveraged ai-sdk and ai react for seamless AI integration in a React-based environment</li>
+        </>
+      ),
+      stack: ["Next.js", "Typescript", "Groq", "ai", "@ai-sdk", "TailwindCSS"],
+      imgSrc: "/assets/recipe_ai.png",
+      fullImgSrc: "/assets/recipe_ai_full.png",
+    },
+    {
       name: "Groq AI Chat:",
       tagLine: "Intelligent Conversations Powered by Groq.",
       githubLink: "https://github.com/ArunKanojia93/askgroq",
@@ -116,24 +141,6 @@ const Info = {
           <li>Built on the robust Next.js framework for optimal performance</li>
         </>
       ),
-      stack: ["Next.js", "Typescript", "groq-sdk", "ai", "@ai-sdk", "Tailwind"],
-      imgSrc: "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png",
-    },
-    {
-      name: "Groq Recipe AI",
-      tagLine: "Intelligent Conversations Powered by Groq.",
-      githubLink: "https://github.com/ArunKanojia93/groqrecipe",
-      liveLink: "https://askgroq.vercel.app",
-      description: "",
-      stack: ["Next.js", "Typescript", "groq-sdk", "ai", "@ai-sdk", "Tailwind"],
-      imgSrc: "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png",
-    },
-    {
-      name: "Ask This Website",
-      tagLine: "Intelligent Conversations Powered by Groq.",
-      githubLink: "https://",
-      liveLink: "/",
-      description: "",
       stack: ["Next.js", "Typescript", "groq-sdk", "ai", "@ai-sdk", "Tailwind"],
       imgSrc: "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png",
     },
