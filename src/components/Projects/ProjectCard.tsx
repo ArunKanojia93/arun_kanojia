@@ -23,7 +23,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
       <Card data-aos="fade-up" onClick={open} shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 hover:shadow-[0px_0px_4px_1px] hover:shadow-primary cursor-pointer hover:scale-[1.01] transition-transform duration-300">
         <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
           <Card.Section p="sm">
-            <Image src={imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary min-h-44" />
+            <Image src={imgSrc} height={160} alt="project image" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary min-h-44" />
           </Card.Section>
 
           <Stack justify="space-between" mt="md" mb="xs" className="relative gap-0">
@@ -56,17 +56,19 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
         <Card shadow="sm" radius="lg" className="font-sans bg-gradient-to-r to-purple-500 from-pink-500 p-0.5 relative">
           <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
             <Card.Section p="sm">
-              <Image src={fullImgSrc ?? imgSrc} height={160} alt="Norway" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />
+              <Image src={fullImgSrc ?? imgSrc} height={160} alt="project image" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary" />
             </Card.Section>
 
             <Stack justify="space-between" mt="md" mb="xs" className="relative gap-0">
               <Text className="text-2xl text-primary font-semibold">{name}</Text>
-              <div className="flex absolute right-0 top-0 items-center justify-center animate-pulse">
-                <Badge variant="outline" color="red" className="pr-4 w-auto">
-                  Live
-                </Badge>
-                <IconPointFilled size={15} color="red" className="-ml-[17px]" />
-              </div>
+              {liveLink && (
+                <div className="flex absolute right-0 top-0 items-center justify-center animate-pulse">
+                  <Badge variant="outline" color="red" className="pr-4 w-auto">
+                    Live
+                  </Badge>
+                  <IconPointFilled size={15} color="red" className="-ml-[17px]" />
+                </div>
+              )}
               <Text className="pr-14 text-foreground">{tagLine}</Text>
             </Stack>
 
@@ -116,18 +118,20 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
                   Android App
                 </Button>
               )}
-              <Button
-                component="a"
-                href={liveLink}
-                target="_blank"
-                fullWidth
-                mt="md"
-                radius="md"
-                className="text-background bg-foreground shadow-sm shadow-primary hover:bg-foreground hover:text-background hover:opacity-80"
-                rightSection={<IconBrandChrome size={18} className="text-background" />}
-              >
-                View Live
-              </Button>
+              {liveLink && (
+                <Button
+                  component="a"
+                  href={liveLink}
+                  target="_blank"
+                  fullWidth
+                  mt="md"
+                  radius="md"
+                  className="text-background bg-foreground shadow-sm shadow-primary hover:bg-foreground hover:text-background hover:opacity-80"
+                  rightSection={<IconBrandChrome size={18} className="text-background" />}
+                >
+                  View Live
+                </Button>
+              )}
             </div>
             <Pill.Group className="mt-4">
               {stack.map((item) => (

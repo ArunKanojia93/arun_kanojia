@@ -126,23 +126,25 @@ const Info = {
       fullImgSrc: "/assets/recipe_ai_full.png",
     },
     {
-      name: "Groq AI Chat:",
-      tagLine: "Intelligent Conversations Powered by Groq.",
-      githubLink: "https://github.com/ArunKanojia93/askgroq",
-      liveLink: "https://askgroq.vercel.app",
+      name: "Ask This Website",
+      tagLine: "AI-Powered Article Q&A Platform",
+      githubLink: "https://github.com/ArunKanojia93/askthiswebsite",
       description: (
         <>
-          <p>Experience seamless AI interactions with our cutting-edge web application built on Next.js and TypeScript. Leveraging the Groq AI API, this platform offers dynamic, real-time conversations with a sophisticated AI model.</p>
+          <p>
+            I developed a dynamic web application that leverages cutting-edge RAG (Retrieval-Augmented Generation) technology to provide an interactive question-answering experience for any online content. Users can simply input a URL, and the system processes the article, blog
+            post, or web page, allowing them to ask natural language questions about the content.
+          </p>
           <br />
           <p className="font-semibold text-primary text-xl">Key Features: </p>
-          <li>Responsive UI crafted with Tailwind CSS</li>
-          <li>Real-time AI interactions using the Groq SDK</li>
-          <li>Enhanced AI capabilities with @ai-sdk integration</li>
-          <li>Built on the robust Next.js framework for optimal performance</li>
+          <li>URL-based content ingestion using Next.js for robust, server-side rendered React applications • Efficient data caching and retrieval powered by Upstash Redis</li>
+          <li>Natural language query processing leveraging OpenAI&#39s {"ai"} package • Upstash RagChat integration for cutting-edge Retrieval-Augmented Generation (RAG) capabilities</li>
+          <li>Intuitive, responsive interface built with Next UI components • Clean, modern design implemented using TailwindCSS for streamlined, utility-first styling</li>
         </>
       ),
-      stack: ["Next.js", "Typescript", "groq-sdk", "ai", "@ai-sdk", "Tailwind"],
-      imgSrc: "https://raw.githubusercontent.com/mantinedev/mantine/master/.demo/images/bg-8.png",
+      stack: ["Next.js", "Typescript", "Upsatash RagChat", "ai", "Upstash RateLimit", "TailwindCSS", "Next UI", "Upstash Redis"],
+      imgSrc: "/assets/askthiswebsite.png",
+      fullImgSrc: "/assets/askthiswebsite_full.png",
     },
   ],
 
