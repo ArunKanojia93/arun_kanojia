@@ -1,3 +1,5 @@
+import "react-pdf/dist/Page/AnnotationLayer.css";
+
 import { useState } from "react";
 
 import { Document, Page, pdfjs } from "react-pdf";
@@ -42,7 +44,7 @@ const PdfViewer = () => {
       }
       file="/assets/Arun Resume.pdf"
     >
-      <Page pageNumber={pageNumber} renderAnnotationLayer={false} renderTextLayer={false} />
+      <Page pageNumber={pageNumber} renderTextLayer={false} />
       <div className="flex justify-between items-center w-full">
         {pageNumber > 1 && (
           <button

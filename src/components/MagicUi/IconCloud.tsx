@@ -69,6 +69,10 @@ export default function IconCloud({ iconSlugs }: DynamicCloudProps) {
   const renderedIcons = useMemo(() => {
     if (!data) return null;
 
+    Object.values(data.simpleIcons).forEach((icon) => {
+      icon.hex = "#DF73FF";
+    });
+
     return Object.values(data.simpleIcons).map((icon) => renderCustomIcon(icon, theme || "light"));
   }, [data, theme]);
 

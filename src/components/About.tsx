@@ -56,7 +56,7 @@ const About = () => {
             </div>
           </div>
           <NeonGradientCard className="max-w-40 max-h-40 md:max-w-80 md:max-h-80 xl:max-w-sm xl:max-h-fit items-center justify-center">
-            <Image src="/assets/dp.png" alt="profile" className="pointer-events-none z-10 rounded-full bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1]" width={384} height={384} />
+            <Image src="/assets/dp.png" alt="profile" priority className="pointer-events-none z-10 rounded-full bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1]" width={384} height={384} />
           </NeonGradientCard>
         </div>
       </div>
