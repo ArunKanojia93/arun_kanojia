@@ -8,10 +8,12 @@ const PdfViewer = () => {
   const [pageNumber, setPageNumber] = useState(1);
 
   const handlePrev = () => {
+    document.querySelector(".mantine-ScrollArea-viewport")?.scrollTo(0, 0);
     setPageNumber(pageNumber - 1);
   };
 
   const handleNext = () => {
+    document.querySelector(".mantine-ScrollArea-viewport")?.scrollTo(0, 0);
     setPageNumber(pageNumber + 1);
   };
 
@@ -38,22 +40,22 @@ const PdfViewer = () => {
           <span className="sr-only text-background">Loading...</span>
         </output>
       }
-      file="/assets/arunkanojia.2008@gmail.com.pdf"
+      file="/assets/Arun Resume.pdf"
     >
       <Page pageNumber={pageNumber} renderAnnotationLayer={false} renderTextLayer={false} />
       <div className="flex justify-between items-center w-full">
         {pageNumber > 1 && (
           <button
             onClick={handlePrev}
-            className="bg-background text-foreground w-fit hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300 rounded-md py-2 px-4 hover:opacity-90"
+            className="bg-background text-foreground w-fit hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300 rounded-md py-2 px-4 hover:opacity-90 fixed bottom-4"
           >
             Prev
           </button>
         )}
-        {pageNumber < 2 && (
+        {pageNumber < 3 && (
           <button
             onClick={handleNext}
-            className="ml-auto bg-background text-foreground w-fit hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300 rounded-md py-2 px-4 hover:opacity-90"
+            className="ml-auto bg-background text-foreground w-fit hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300 rounded-md py-2 px-4 hover:opacity-90 fixed bottom-4 right-4"
           >
             Next
           </button>
