@@ -1,15 +1,26 @@
 "use client";
 
-import { ActionIcon, Button, Modal, ScrollArea, Tooltip } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { IconArrowBigDownLines, IconArrowBigDownLinesFilled } from "@tabler/icons-react";
-import dynamic from "next/dynamic";
-import Image from "next/image";
-import TypeWriter from "typewriter-effect";
-import { NeonGradientCard } from "./MagicUi/NeonGradientCard";
-import Particles from "./MagicUi/Particles";
-import SparklesText from "./MagicUi/SparkelsText";
-import Info from "./User";
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
+import TypeWriter from 'typewriter-effect';
+
+import {
+  ActionIcon,
+  Button,
+  Modal,
+  ScrollArea,
+  Tooltip,
+} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import {
+  IconArrowBigDownLines,
+  IconArrowBigDownLinesFilled,
+} from '@tabler/icons-react';
+
+import { NeonGradientCard } from './MagicUi/NeonGradientCard';
+import Particles from './MagicUi/Particles';
+import SparklesText from './MagicUi/SparkelsText';
+import Info from './User';
 
 const About = () => {
   const PdfViewer = dynamic(() => import("./PDFViewer/PDFViewer"), { ssr: false });
@@ -40,13 +51,18 @@ const About = () => {
             <div className="md:text-lg 2xl:text-xl font-semibold text-justify my-10 w-full md:w-11/12">{Info.bio}</div>
 
             <div className="flex gap-4">
-              <Button onClick={open} size="md" radius="md" className="bg-foreground text-background w-fit hover:bg-foreground hover:text-background hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300">
+              <Button
+                onClick={open}
+                size="md"
+                radius="md"
+                className="bg-foreground text-background w-fit hover:bg-foreground hover:text-background hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300"
+              >
                 Check Resume
               </Button>
               <Button
                 component="a"
-                href="/assets/arun@pyzalabs.com.pdf"
-                download={Info.email}
+                href="/assets/Arun Resume.pdf"
+                download="ARUN_KANOJIA-RESUME"
                 size="md"
                 radius="md"
                 className="bg-background text-foreground w-fit border-2 border-primary hover:bg-background hover:text-foreground hover:shadow-[0px_0px_4px_2px] hover:shadow-primary transition-shadow duration-300"
@@ -56,7 +72,14 @@ const About = () => {
             </div>
           </div>
           <NeonGradientCard className="max-w-40 max-h-40 md:max-w-80 md:max-h-80 xl:max-w-sm xl:max-h-fit items-center justify-center">
-            <Image src="/assets/dp.png" alt="profile" priority className="pointer-events-none z-10 rounded-full bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1]" width={384} height={384} />
+            <Image
+              src="/assets/dp.png"
+              alt="profile"
+              priority
+              className="pointer-events-none z-10 rounded-full bg-gradient-to-br from-[#ff2975] from-35% to-[#00FFF1]"
+              width={384}
+              height={384}
+            />
           </NeonGradientCard>
         </div>
       </div>
@@ -66,7 +89,7 @@ const About = () => {
           <Modal.Header className="bg-background relative justify-normal">
             <Modal.Title className="text-3xl font-bold">Resume</Modal.Title>
             <Tooltip label="Download" position="right" offset={10} className="bg-foreground text-background">
-              <ActionIcon component="a" href="/assets/arun@pyzalabs.com.pdf" download={Info.email} variant="outline" aria-label="Settings" className="ml-4 border-foreground">
+              <ActionIcon component="a" href="/assets/Arun Resume.pdf" download="ARUN_KANOJIA-RESUME" variant="outline" aria-label="Settings" className="ml-4 border-foreground">
                 <IconArrowBigDownLinesFilled stroke={1.5} className="text-foreground animate-bounce" />
               </ActionIcon>
             </Tooltip>
