@@ -1,8 +1,26 @@
 "use client";
 
-import { Badge, Button, Card, FocusTrap, Image, Modal, Pill, ScrollArea, Stack, Text } from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { IconBrandAndroid, IconBrandAppleFilled, IconBrandChrome, IconBrandGithub, IconPointFilled, IconX } from "@tabler/icons-react";
+import {
+  Badge,
+  Button,
+  Card,
+  FocusTrap,
+  Image,
+  Modal,
+  Pill,
+  ScrollArea,
+  Stack,
+  Text,
+} from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
+import {
+  IconBrandAndroid,
+  IconBrandAppleFilled,
+  IconBrandChrome,
+  IconBrandGithub,
+  IconPointFilled,
+  IconX,
+} from '@tabler/icons-react';
 
 interface ProjectCardProps {
   name: string;
@@ -29,10 +47,10 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
       >
         <div className="bg-background p-4 rounded-2xl h-full flex flex-col">
           <Card.Section p="sm">
-            <Image src={imgSrc} height={160} alt="project image" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary min-h-44" />
+            <Image src={imgSrc} height={160} alt="project image" radius="md" className="shadow-[1px_1px_4px_2px] shadow-primary min-h-44 h-64" />
           </Card.Section>
 
-          <Stack justify="space-between" mt="md" mb="xs" className="relative gap-0">
+          <Stack justify="space-between" mt="md" mb="xs" className="relative gap-0 pr-14">
             <Text className="text-2xl text-primary font-semibold">{name}</Text>
             {liveLink && (
               <div className="flex absolute right-0 top-0 items-center justify-center animate-pulse">
@@ -43,7 +61,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
               </div>
             )}
             <Text className="text-foreground text-sm">{tagLine}</Text>
-            <Pill.Group className="mt-4">
+            <Pill.Group className="my-4">
               {stack.map((item) => (
                 <Pill key={item} radius={6} className="shadow-[0px_0px_2px_1px] shadow-primary bg-foreground text-background font-semibold">
                   {item}
@@ -52,7 +70,7 @@ export const ProjectCard = ({ name, githubLink, liveLink, description, stack, im
             </Pill.Group>
           </Stack>
 
-          <div className="text-foreground text-sm leading-6 tracking-wide line-clamp-3 mb-7">{description}</div>
+          <div className="text-foreground text-sm leading-6 tracking-wide line-clamp-3 mb-5 mt-auto">{description}</div>
           <Button
             onClick={open}
             variant="outline"

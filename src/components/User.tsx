@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import {
   IconAddressBook,
   IconApi,
@@ -24,13 +26,29 @@ import {
   IconKeyboard,
   IconMail,
   IconUserSearch,
-} from "@tabler/icons-react";
-import Image from "next/image";
+} from '@tabler/icons-react';
 
 const Info = {
   name: "Arun Kanojia",
   email: "arun@pyzalabs.com",
-  stack: ["Next.js", "React", "React Native", "TailwindCSS", "Typescript", "Node.js", "Firebase", "Bootstrap", "Astro", "Rest API", "HTML5", "CSS3", "JavaScript", "Redux", "NanoStores", "React Query"],
+  stack: [
+    "Next.js",
+    "React",
+    "React Native",
+    "TailwindCSS",
+    "Typescript",
+    "Node.js",
+    "Firebase",
+    "Bootstrap",
+    "Astro",
+    "Rest API",
+    "HTML5",
+    "CSS3",
+    "JavaScript",
+    "Redux",
+    "NanoStores",
+    "React Query",
+  ],
   bio: "As a dedicated front-end developer with nearly six years of experience, I specialize in crafting visually stunning and user-friendly web interfaces. With a strong foundation in HTML, CSS, and JavaScript, I'm passionate about translating design concepts into functional, interactive experiences. My goal is to create seamless digital solutions that not only look great but also deliver exceptional performance and user satisfaction.",
 
   socials: [
@@ -64,8 +82,8 @@ const Info = {
       description: (
         <>
           <p>
-            Welcome to Happy Inbox, a cutting-edge email management solution built with a robust, performance-focused tech stack. Our platform leverages the power of modern web technologies to provide Gmail users with an efficient, secure, and user-friendly email organization
-            experience.
+            Welcome to Happy Inbox, a cutting-edge email management solution built with a robust, performance-focused tech stack. Our platform leverages the power of modern web
+            technologies to provide Gmail users with an efficient, secure, and user-friendly email organization experience.
           </p>
           <br />
           <p className="font-semibold text-primary text-xl">Key Features: </p>
@@ -107,7 +125,10 @@ const Info = {
       liveLink: "https://groq-recipe-ai.vercel.app/",
       description: (
         <>
-          <p>Developed an innovative web application that leverages artificial intelligence to generate detailed cooking instructions from recipe names. This project showcases my ability to integrate cutting-edge AI technology with modern web development practices.</p>
+          <p>
+            Developed an innovative web application that leverages artificial intelligence to generate detailed cooking instructions from recipe names. This project showcases my
+            ability to integrate cutting-edge AI technology with modern web development practices.
+          </p>
           <br />
           <p className="font-semibold text-primary text-xl">Key Features: </p>
           <li>AI-powered recipe instruction generation</li>
@@ -132,19 +153,40 @@ const Info = {
       description: (
         <>
           <p>
-            I developed a dynamic web application that leverages cutting-edge RAG (Retrieval-Augmented Generation) technology to provide an interactive question-answering experience for any online content. Users can simply input a URL, and the system processes the article, blog
-            post, or web page, allowing them to ask natural language questions about the content.
+            I developed a dynamic web application that leverages cutting-edge RAG (Retrieval-Augmented Generation) technology to provide an interactive question-answering
+            experience for any online content. Users can simply input a URL, and the system processes the article, blog post, or web page, allowing them to ask natural language
+            questions about the content.
           </p>
           <br />
           <p className="font-semibold text-primary text-xl">Key Features: </p>
           <li>URL-based content ingestion using Next.js for robust, server-side rendered React applications • Efficient data caching and retrieval powered by Upstash Redis</li>
-          <li>Natural language query processing leveraging OpenAI&#39s {"ai"} package • Upstash RagChat integration for cutting-edge Retrieval-Augmented Generation (RAG) capabilities</li>
+          <li>
+            Natural language query processing leveraging OpenAI&#39s {"ai"} package • Upstash RagChat integration for cutting-edge Retrieval-Augmented Generation (RAG) capabilities
+          </li>
           <li>Intuitive, responsive interface built with Next UI components • Clean, modern design implemented using TailwindCSS for streamlined, utility-first styling</li>
         </>
       ),
       stack: ["Next.js", "Typescript", "Upsatash RagChat", "ai", "Upstash RateLimit", "TailwindCSS", "Next UI", "Upstash Redis"],
       imgSrc: "/assets/askthiswebsite.png",
       fullImgSrc: "/assets/askthiswebsite_full.png",
+    },
+    {
+      name: "Freelance Project: Architectural Consultancy Portfolio",
+      tagLine: "Architectural Consultancy Portfolio",
+      liveLink: "https://safwatghaly.com",
+      description: (
+        <ul>
+          <li>Designed and developed a fully responsive and visually appealing portfolio website for an architectural consultant, showcasing their work and expertise.</li>
+          <li>Leveraged Astro for optimized static site generation, ensuring fast performance and SEO-friendly architecture.</li>
+          <li>Used Preact to enhance interactivity while keeping the site lightweight and efficient.</li>
+          <li>Implemented Tailwind CSS and ShadCN to create a modern, aesthetic, and accessible UI.</li>
+          <li>Ensured seamless navigation and cross-device compatibility, optimizing UX for potential clients.</li>
+          <li>Delivered a scalable and maintainable codebase, allowing for future content expansion.</li>
+        </ul>
+      ),
+      stack: ["Astro", "ShadCn", "TailwindCSS", "Preact"],
+      imgSrc: "/assets/safwat-ghaly.png",
+      fullImgSrc: "/assets/safwat-ghaly.png",
     },
   ],
 
