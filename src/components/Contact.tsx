@@ -1,8 +1,8 @@
-import { IconArrowRight, IconCodeDots } from "@tabler/icons-react";
-import { addDoc, collection } from "firebase/firestore";
 import { useState } from "react";
+
 import toast, { ToastPosition } from "react-hot-toast";
-import { db } from "./InitializeFIrebase";
+
+import { IconArrowRight, IconCodeDots } from "@tabler/icons-react";
 
 interface FormData {
   id: string;
@@ -63,7 +63,20 @@ const Contact = () => {
     }
 
     try {
-      await addDoc(collection(db, "contact"), { ...form, id: new Date().toLocaleString() });
+      const formSubmitData = new URLSearchParams({
+        name: form.name,
+        email: form.email,
+        phone: form.phone!,
+        message: form.message,
+      });
+
+      await fetch(process.env.NEXT_PUBLIC_SHEET_URL!, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formSubmitData,
+      });
 
       setFormError(formData);
       setForm(formData);
@@ -90,7 +103,19 @@ const Contact = () => {
             </div>
 
             <form onSubmit={handleSubmit} className="flex flex-col gap-8">
-              {Object.keys(form).map((key) => key !== "id" && <FloatingInput key={key} id={key} name={key} value={form[key as keyof FormData]} handleChange={(id, value) => handleChange(id, value)} error={formError[key as keyof FormData]} />)}
+              {Object.keys(form).map(
+                (key) =>
+                  key !== "id" && (
+                    <FloatingInput
+                      key={key}
+                      id={key}
+                      name={key}
+                      value={form[key as keyof FormData]}
+                      handleChange={(id, value) => handleChange(id, value)}
+                      error={formError[key as keyof FormData]}
+                    />
+                  )
+              )}
 
               <button
                 disabled={
@@ -113,7 +138,19 @@ const Contact = () => {
   );
 };
 
-const FloatingInput = ({ id, name, value, handleChange, error }: { id: string; name: string; value?: string; handleChange: (id: string, value: string) => void; error?: string }) => {
+const FloatingInput = ({
+  id,
+  name,
+  value,
+  handleChange,
+  error,
+}: {
+  id: string;
+  name: string;
+  value?: string;
+  handleChange: (id: string, value: string) => void;
+  error?: string;
+}) => {
   return (
     <div>
       <div className="relative">
