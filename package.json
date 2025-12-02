@@ -20,7 +20,7 @@
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
     "react-icon-cloud": "^4.1.4",
-    "react-pdf": "8.0.2",
+    "react-pdf": "10.2.0",
     "tailwind-merge": "^2.5.2",
     "typewriter-effect": "^2.21.0"
   },
